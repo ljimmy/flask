@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>
+            登陆
+        </title>
+    </head>
+    <body>
+        <div>
+            {% with m = get_flashed_messages() %}
+                {% if m %}
+                    <ul class=flashes>
+                    {% for message in m %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <form action="/api/v1/passport/join" method="POST">
+            <div>
+                <label>手机号码：<input type="text" name="mobile"></label>
+            </div>
+            <div>
+                <label>密码：<input type="password" name="password"></label>
+            </div>
+            <input type="submit" value="提交">
+        </form>
+    </body>
+</html>
+
